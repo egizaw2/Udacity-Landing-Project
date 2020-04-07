@@ -43,3 +43,5 @@ function cursor() {
 cursor();
 
 myFunction();
+
+var scroll = new SmoothScroll('a[href*="#"]');
