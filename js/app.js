@@ -21,6 +21,8 @@ function sections() {
 
 sections();
 
+
+
 // add scroll to event
 function scrollToAnchor() {
     nav.addEventListener('click', function (scroll) {
@@ -35,6 +37,7 @@ function myFunction() {
         document.getElementById("navbar__list").style.color = "rgb(136, 203, 171)";
     });
 };
+myFunction();
 scrollToAnchor();
 // change default curser to pointer cursor
 function cursor() {
@@ -42,6 +45,4 @@ function cursor() {
 }
 cursor();
 
-myFunction();
-
-var scroll = new SmoothScroll('a[href*="#"]');
+element.scrollToTop({ top: 0, left: 0, behavior: 'smooth' });
