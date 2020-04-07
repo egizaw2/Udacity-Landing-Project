@@ -66,6 +66,7 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
 .navbar__menu ul {
 	padding-left: 0;
 	margin: 0;
@@ -79,21 +80,21 @@ section {
 	display: inline-block;
 }
 
-
 .navbar__menu .menu__link {
 	display: inline-block;
 	padding: 1em;
 	font-weight: bold;
-
+	text-decoration: oldlace;
+	color: white;	
 	
 }
-
 
 .navbar__menu .menu__link:hover {
 	background: rgb(136, 203, 171);
 	color: #fff;
 	transition: ease 0.3s all;
 }
+
 
 /* Header Styles */
 .page__header {
@@ -239,3 +240,8 @@ section.your-active-class .landing__container::after {
 		transform: rotate(360deg) translate(-1em) rotate(-360deg);
 	}
 }
+html {
+	scroll-behavior: auto;
+	scroll-behavior: smooth;
+  }
+  
