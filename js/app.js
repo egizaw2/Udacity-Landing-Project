@@ -79,6 +79,3 @@ function cursor() {
     document.getElementById("navbar__list").style.cursor = "pointer";
 }
 cursor();
-
-
-
