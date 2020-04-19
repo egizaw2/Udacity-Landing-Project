@@ -89,10 +89,17 @@ section {
 	
 }
 
-.navbar__menu.active, .menu__link:hover {
-	background-color: #666;
+.navbar__menu .menu__link:hover {
+	background: rgba(136, 203, 171, 1);
 	color: white;
-  }
+	transition-duration: 0.4s;
+}
+
+.navbar__menu .active__link {
+	background: rgba(136, 203, 171, 1);
+	color: oldlace;
+	
+}
 
 /* Header Styles */
 .page__header {
@@ -242,4 +249,5 @@ html {
 	scroll-behavior: auto;
 	scroll-behavior: smooth;
   }
+  
   
