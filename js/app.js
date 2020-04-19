@@ -3,14 +3,28 @@
  */
 
 const nav = document.querySelector("#navbar__list");
-const section = document.querySelectorAll("section");
+const section1 = document.querySelectorAll("section");
 
 /**
  * build navigation bar
  */
-
+function activeSection() {
+    maxSection = section1[0];
+    minVal = 1000;
+    for (item of section1) {
+        let bounding = item.getBoundingClientRect();
+        if (bounding.top > -100 & bounding.top < minVal) {
+            minVal = bounding.top;
+            maxSection = item;
+        };
+    };
+    return maxSection;
+};
+/**
+ * build navigation bar
+ */
 function sections() {
-    for (let item of section) {
+    for (let item of section1) {
         let section = document.createElement("li");
         section.className = 'menu__link';
         section.dataset.nav = item.id;
@@ -20,8 +34,30 @@ function sections() {
 };
 
 sections();
-
-
+function setActive () {
+    window.addEventListener('scroll', function (event) {
+        let section = activeSection();
+        section.classList.add('your-active-class');
+        // set other sections as inactive
+        for (let item of section1) {
+            if (item.id != section.id & item.classList.contains('your-active-class')) {
+                item.classList.remove('your-active-class');
+            }
+        }
+        // set corresponding header style
+        const active = document.querySelector('li[data-nav="' + section.id + '"]');
+        active.classList.add('active__link');
+        // remove from other headers
+        const headers = document.querySelectorAll('.menu__link');
+        for (let item of headers) {
+            console.log(item);
+            if (item.dataset.nav != active.dataset.nav & item.classList.contains('active__link')) {
+                item.classList.remove('active__link');
+            }
+        };
+    });
+};
+setActive();
 // add scroll to event
 function scrollToAnchor() {
     nav.addEventListener('click', function (scroll) {
@@ -44,25 +80,5 @@ function cursor() {
 }
 cursor();
 
-element.scrollToTop({ top: 0, left: 0, behavior: 'smooth' });
 
-var navMenu = document.getElementById("navbar__menu");
-
-// Get all buttons with class="btn" inside the container
-var menuLink = navMenu.getElementsByClassName("menu__link");
-
-// Loop through the buttons and add the active class to the current/clicked button
-for (var i = 0; i < menuLink.length; i++) {
-  menuLink[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-
-    // If no active class
-    if (current.length > 0) {
-      current[0].className = current[0].className.replace(" active", "");
-    }
-
-    //  current/clicked button
-    this.className += " active";
-  });
-}
 
